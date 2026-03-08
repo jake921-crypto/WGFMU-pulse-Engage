@@ -1,0 +1,53 @@
+# RRAM pulse sequence config (template)
+# Units for time: "100us", "1ms", "0.5s" or numeric in seconds
+
+sequence_type: ltp_ltd   # ltp_ltd | retention | read_retention | wgfm_gate_sweep_piv
+
+# --- For sequence_type: ltp_ltd ---
+ltp_ltd:
+  v_write_set_v: -2.3
+  v_write_reset_v: 1.2
+  width: "100us"
+  interval: "100us"
+  v_read_v: 0.2
+  read_width: "50us"
+  # initial_holding_time: 0   # optional, seconds (sequence starts with hold then read)
+  cycles: 100
+  # optional forming / pre-conditioning
+  # forming:
+  #   voltage_v: -3.0
+  #   width: "1ms"
+  #   count: 1
+
+# --- For sequence_type: retention (HRS/LRS) ---
+# retention:
+#   state: LRS          # HRS or LRS
+#   v_set_v: -2.3
+#   v_reset_v: 1.2
+#   set_width: "100us"
+#   reset_width: "100us"
+#   holding_times: [1e-3, 3e-3, 0.01, 0.03, 0.1, 0.3, 1, 3, 10]
+#   v_read_v: 0.2
+#   read_width: "50us"
+
+# --- For sequence_type: read_retention ---
+# read_retention:
+#   holding_times: [1e-3, 3e-3, 0.01, 0.03, 0.1]
+#   v_read_v: 0.2
+#   read_width: "50us"
+
+# --- For sequence_type: wgfm_gate_sweep_piv (Keysight B1500A WGFMU) ---
+# wgfm_gate_sweep_piv:
+#   start_v: -5
+#   stop_v: 5
+#   step_v: 0.1
+#   sweep_mode: double   # forward | reverse | double
+#   base_v: 0
+#   off_time: 1
+#   rise_time: "100n"
+#   pulse_width: "100u"
+#   fall_time: "100n"
+#   measure_center_ratio: 0.50
+#   interval_ratio: 0.40
+#   average_ratio: 0.30
+#   duplicate_endpoint: true

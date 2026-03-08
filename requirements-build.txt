@@ -1,0 +1,2 @@
+# Build-only deps (for pyinstaller)
+pyinstaller>=6.0
